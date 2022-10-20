@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  login(){
+  public login(){
     this.HttpClient.post('http://localhost:3003/logon', {username : this.username, password : this.password}).toPromise().then((response : any)=> {
     console.log(response);
       if(response.token){
@@ -33,4 +33,6 @@ export class LoginComponent implements OnInit {
       }
     })
   }
+
+  
 }

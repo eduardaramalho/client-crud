@@ -16,6 +16,9 @@ import { RoutesModule } from './routes.module';
 import { GroupComponent } from './group/group.component';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { GroupModalComponent } from './group-modal/group-modal.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     MenuComponent,
     DashComponent,
     GroupComponent,
-    UserComponent
+    UserComponent,
+    GroupModalComponent
   ],
   imports: [
     RoutesModule,
@@ -36,7 +40,9 @@ import { HttpClientModule } from '@angular/common/http';
     BlockUIModule.forRoot(),
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports : [
     RouterModule
