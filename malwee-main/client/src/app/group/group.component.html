@@ -6,6 +6,8 @@
 <button mat-stroked-button (click)="openModal()">+</button>
 <table>
     <tr *ngFor="let grupo of grupos">
-        <td>{{grupo.descricao}}</td>
+      <td>{{grupo.id}} -  </td>
+      <td (click)="openModalEdit(grupo)"> {{grupo.descricao}} </td>
+      <td (click)="deleteGrupo(grupo.id)">&#x274C;</td>
     </tr>
 </table>

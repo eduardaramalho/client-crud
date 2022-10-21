@@ -1,11 +1,3 @@
-<h1>Novo Grupo</h1>
-
-<form class="example-form">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Insira a descrição do novo grupo</mat-label>
-      <input matInput [(ngModel)]="descricao">
-    </mat-form-field>
-</form>
-
-<button mat-raised-button color="primary" (click)="delete()">Cancelar</button>
-<button mat-raised-button color="accent" (click)="add()">Adicionar</button>
+<app-basicmodal [title]="'Novo Grupo'" (save)="add()">
+    <app-input [label]="'Descrição do grupo'" [required]="true" [(ngModel)]="descricao"></app-input>
+</app-basicmodal>

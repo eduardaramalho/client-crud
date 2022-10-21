@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/services/http.service';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-group-modal',
@@ -8,18 +9,14 @@ import { HttpService } from 'src/services/http.service';
 })
 export class GroupModalComponent implements OnInit {
   descricao : string = '';
-  grupos : Array<any> =[]; 
   
-  constructor(private httpService : HttpService) { }
+  constructor(private httpService : HttpService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  public async add (){
-    await this.httpService.post('grupo', this.descricao);
-  }
-
-  public delete(){
-
+  public async add(){
+    console.log({descricao : this.descricao});
+    await this.httpService.post('grupo', {descricao : this.descricao});
   }
 }

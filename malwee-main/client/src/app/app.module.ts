@@ -19,6 +19,11 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { GroupModalComponent } from './group-modal/group-modal.component';
+import { EditModalComponent } from './edit-modal/edit-modal.component';
+import { BasicmodalComponent } from './basicmodal/basicmodal.component';
+import { InputComponent } from './input/input.component';
+import { QuestionComponent } from './question/question.component';
+import { QuestionService } from 'src/services/question.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,11 @@ import { GroupModalComponent } from './group-modal/group-modal.component';
     DashComponent,
     GroupComponent,
     UserComponent,
-    GroupModalComponent
+    GroupModalComponent,
+    EditModalComponent,
+    BasicmodalComponent,
+    InputComponent,
+    QuestionComponent
   ],
   imports: [
     RoutesModule,
@@ -47,7 +56,9 @@ import { GroupModalComponent } from './group-modal/group-modal.component';
   exports : [
     RouterModule
   ],
-  providers: [],
+  providers: [
+    QuestionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
