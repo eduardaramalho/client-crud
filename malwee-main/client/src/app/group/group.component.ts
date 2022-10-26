@@ -4,6 +4,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { GroupModalComponent } from '../group-modal/group-modal.component';
 import { EditModalComponent } from '../edit-modal/edit-modal.component';
 import { QuestionService } from 'src/services/question.service';
+import { ObjectUtils } from '../../utils/ObjectUtils';
 
 @Component({
   selector: 'app-group',
@@ -11,8 +12,9 @@ import { QuestionService } from 'src/services/question.service';
   styleUrls: ['./group.component.scss']
 })
 export class GroupComponent implements OnInit {
-  grupos : Array<any> =[]; 
-  descricao : string = '';
+  grupos     : Array<any> =[]; 
+  originalList : Array<any> =[]; 
+  filterTerm : string = '';
 
   constructor(private httpService : HttpService, public dialog: MatDialog, private question: QuestionService) { }
 
@@ -20,8 +22,13 @@ export class GroupComponent implements OnInit {
     this.list()
   }
 
-  public async list(){
-    this.grupos = await this.httpService.get('grupo');
+  public async list(){    
+      this.grupos = await this.httpService.get('grupo');
+      ObjectUtils.copyArray(this.grupos, this.originalList);
+  }
+
+  public filterInput(){
+    ObjectUtils.filterArray(this.grupos, this.originalList, this.filterTerm, 'descricao');
   }
 
   public openModal(){
@@ -45,12 +52,10 @@ export class GroupComponent implements OnInit {
     })
   }
 
-   
    public async deleteGrupo(id : number){
-    
-        this.question.ask(async () => {
-          await this.httpService.patch('grupo', {id});
-          this.list();    
-        })
+    this.question.ask(async () => {
+      await this.httpService.patch('grupo', {id});
+      this.list();    
+    }) 
   }    
 }

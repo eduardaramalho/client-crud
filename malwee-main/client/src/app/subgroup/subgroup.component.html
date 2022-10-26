@@ -1,26 +1,30 @@
 <div class="example-form">
     <mat-form-field class="example-full-width" appearance="fill" >
-      <mat-label>Insira o grupo</mat-label>
+      <mat-label>Insira o subgrupo</mat-label>
       <input matInput (input)="filterInput()" [(ngModel)]="filterTerm">
     </mat-form-field>
     <button class="buttonSearch" mat-stroked-button (click)="openModal()">+</button>
 </div>
 
-<table *ngIf="grupos.length > 0">
+
+<table *ngIf="subgrupo.length > 0">
   <tr>
     <td>ID</td>
+    <td>Subgrupo</td>
     <td>Grupo</td>
     <td class="tdDesativar">Desativar</td>
   </tr>
-    <tr *ngFor="let grupo of grupos">
-      <td>{{grupo.id}} -  </td>
-      <td (click)="openModalEdit(grupo)" class="tdDescricao"> {{grupo.descricao}} </td>
-      <button class="buttonDelete" mat-stroked-button (click)="deleteGrupo(grupo.id)">X</button>
+    <tr *ngFor="let subgrupo of subgrupo">
+      <td>{{subgrupo.id}} -  </td>
+      <td class="tdDescricao"> {{subgrupo.descricao}} </td>
+      <td>{{subgrupo.fkgrupo}}  </td>
+      <button class="buttonDelete" mat-stroked-button >X</button>
     </tr>
 </table>
 
-<!-- <app-grid [array]="grupos" [filter]="'descricao'"></app-grid> -->
 
-<div *ngIf="grupos.length == 0">
+<!--
+<div *ngIf="subgrupos.length == 0">
   <p>Nenhum registro encontrado.</p>
 </div>
+-->

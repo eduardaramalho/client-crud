@@ -18,6 +18,7 @@ export class QuestionService{
        })
    
        dialog.afterClosed().subscribe(async (result) => {
+        debugger
          if (!result && noCallback){
            noCallback();
          }

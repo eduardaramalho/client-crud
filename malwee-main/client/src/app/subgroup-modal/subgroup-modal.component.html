@@ -1,0 +1,4 @@
+<app-basicmodal [title]="'Novo subgrupo'" (save)="add()">
+    <app-input [label]="'Código do grupo'" [required]="true" [(ngModel)]="fkgrupo"></app-input>
+    <app-input [label]="'Descrição do subgrupo'" [required]="true" [(ngModel)]="descricao"></app-input>
+</app-basicmodal>

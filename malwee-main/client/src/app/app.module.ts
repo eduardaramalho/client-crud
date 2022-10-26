@@ -24,6 +24,8 @@ import { BasicmodalComponent } from './basicmodal/basicmodal.component';
 import { InputComponent } from './input/input.component';
 import { QuestionComponent } from './question/question.component';
 import { QuestionService } from 'src/services/question.service';
+import { SubgroupComponent } from './subgroup/subgroup.component';
+import { SubgroupModalComponent } from './subgroup-modal/subgroup-modal.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { QuestionService } from 'src/services/question.service';
     EditModalComponent,
     BasicmodalComponent,
     InputComponent,
-    QuestionComponent
+    QuestionComponent,
+    SubgroupComponent,
+    SubgroupModalComponent
   ],
   imports: [
     RoutesModule,
